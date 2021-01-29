@@ -1,0 +1,266 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:url(https://cdn.pixabay.com/photo/2016/11/16/03/37/globe-trotter-1828079_960_720.jpg);
+	background-repeat: no-repeat;
+	background-clip: content-box;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: 'Raleway', sans-serif;
+
+
+
+}
+/*definicion de areas*/
+.contenedor{
+	display: grid;
+	grid-template-areas: "header header header header"
+						 "aside main main main"
+						 "aside main main main"
+						 "aside main main main"
+						 "aside main main main"
+						 "aside main main main"
+						 "aside main main main"
+						 "footer footer footer footer";
+
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows:1fr;
+	height: 100vh;
+	grid-gap: 10px;
+
+}
+/*asignacion de areas , color de fondo , color de letras*/
+.header{
+	grid-area: header;
+	background:rgba(1,1,1,.5);
+	color:#fff;
+}
+.main{
+	grid-area: main;
+	background:rgba(1,1,1,.29);
+	color:#fff;
+	border-radius: 5px;
+	margin-right: 54px;
+}
+.aside{
+	grid-area: aside;
+	background:rgba(1,1,1,.29);
+	color:#fff;
+	border-radius: 5px;
+	margin-left: 54px;
+}
+.footer{
+	grid-area: footer;
+	background:rgba(1,1,1,.5);
+	color:#fff;
+
+}
+/*estilos al navegador*/
+.header{
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+#boton{
+	display: none;
+}
+.header label {
+	display: none;
+	width:60px;
+	padding: 10px;
+	font-size: 30px;
+	transition: all 500ms ease;
+
+}
+.header label:hover {
+
+}
+.nav ul{
+	list-style: none;
+
+	display: flex;
+	text-align: center;
+
+}
+.nav ul li a{
+	text-decoration: none;
+	color:#fff;
+	display: block;
+	padding: 15px 20px;
+	transition: all 500ms ease;
+	font-size: 30px;
+	border-radius: 50px;
+}
+
+.nav ul li a:hover{
+	background:rgba(255,255,255,.3);
+}
+/*grid hader*/
+.header{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-template-areas: "nav h1"	;
+	grid-gap: 10px;
+}
+.nav{
+	grid-area: nav;
+}
+.header h1{
+	grid-area: h1;
+	color: #ae323bff;
+	align-self: center;
+	justify-self:end;
+	margin-right: 30px;
+	font-weight: 600;
+	filter:brightness(2);
+}
+
+
+@media screen and (max-width:800px){
+	/*menu responsive*/
+
+	.header label{
+		display: block;
+
+	}
+
+	
+	.nav{
+		position: absolute;
+		width: 70%;
+		transform: translateY(-1000px);
+		transition: all 500ms ease;
+		z-index: 100;
+	
+	}
+	.nav ul{
+		display: flex;
+		background-color:rgba(100,100,100,.9);
+		flex-direction: column;
+		border-top: 1px solid #fffa;
+		z-index: -1;
+
+	}
+
+	#boton:checked~.nav{
+		margin: 0;
+		transform: translateY(50px);
+		/*transform: translateY(0px);*/
+		
+	}
+	/*body fondo*/
+	body{
+		background-position: center center;
+		background-origin: border-box;
+	
+	}
+	/*cambia de posicion el aside */
+	.contenedor{
+
+	grid-template-areas: "header header header header"
+						 "main main main main"
+						 "main main main main"
+						 "main main main main"
+						 "main main main main"
+						 "aside aside aside aside"
+						 "aside aside aside aside"
+						 "footer footer footer footer";
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows: 1fr
+
+     }
+   /*acomodar los margin de aside y main*/
+   .main{
+   		margin-right:20px;
+   		margin-left: 20px; 
+   }
+    .aside{
+   		margin-right:20px;
+   		margin-left: 20px; 
+   }
+   /*centrar el titulio*/
+
+}
+
+/*main estilo*/
+.main h2{
+	text-align: center;
+	padding: 10px;
+}
+.main p{
+	padding: 10px;
+	font-weight: 600;
+	line-height: 30px;
+	letter-spacing:2px;
+}
+.img{
+	object-fit: cover;
+	width: 30%;
+	float:right;
+	color:blue;
+	margin: 10px;
+	filter:drop-shadow(37px 13px 25px rgba(0,0,0,0.9));
+
+}
+/*aside apps*/
+.app{
+	border-bottom: 2px solid grey;
+	border-radius: 5px;
+	margin: 5px;
+	transition: all 500ms ease;
+}
+.app img{
+	width: 100%;
+	height: 150px;
+	object-fit: contain;
+	z-index: -1
+}
+.app:hover{
+ 	background:rgba(100,100,100,.9);
+
+}
+.app:hover > img{
+	background:rgba(100,100,100,.9);
+}
+.aside h2{
+	text-align: center;
+}
+.app p{
+	text-decoration: none;
+	color:red;
+	text-align: center;
+	color: #fff;
+	font-weight: 600px;
+}
+
+.app a{
+	text-decoration: none;
+
+}
+.nav{
+	text-align: center;
+}
+/*footer*/
+.footer{
+	text-align: center;
+	font-size: 30px;
+
+}
+
+@media screen and (max-width: 488px){
+
+	.header h1{
+		align-self: center;
+		justify-self:start;
+		margin: 0;
+		font-size: 20px;
+		
+	}
+}
+@media screen and (max-width: 1024px){
+	.nav{
+		align-self: center;
+	}
+}
